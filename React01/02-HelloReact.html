@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-HelloReact</title>
+    <!-- react.js react的核心文件，支持react语法-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <!-- react-dom.js 支持react有关的dom操作-->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- 书写jsx的核心插件-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script type="text/babel">
+    /*
+        1、使用react创建元素(虚拟dom)，将其插入到app里
+        语法：
+            React.createElement()
+            参数1：节点名
+            参数2：节点的属性
+            参数3：节点的内容
+            返回值：新建的dom节点(虚拟)
+
+            例子：h2元素，设置id:#eH2，内容：hello,React
+     */
+    let app = document.getElementById("app");
+    let newH2 = React.createElement("h2",{id:"eH2"},"hello,world!");
+    ReactDOM.render(newH2,app);
+
+    /*
+        练习：
+            创建ul标签，设置class:ul1,内容：li标签，设置class:li1，内容：这是1个li标签
+     */
+    // let Li1 = React.createElement("li",{className:"li1"},"这是1个li标签");
+    // let Ul1 = React.createElement("ul",{className:"ul1"},Li1);
+    let Ul1 = React.createElement("ul",{className:"ul1"},React.createElement("li",{className:"li1"},"这是1个li标签"));
+    ReactDOM.render(Ul1,app);
+
+
+    ReactDOM.render(
+        <ul className="ul1">
+            <li className="li1">这是第二个li标签</li>
+        </ul>,
+        app
+    );
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-React介绍</title>
+</head>
+<body>
+    <h2>React:Facebook开源库</h2>
+    <h3>React的特点</h3>
+    <ul>
+        <li>JSX(JavaScript)语法,React可以让我们用JS的语法书写HTML</li>
+        <li>虚拟DOM(Virtual DOM)：
+                顾名思义不是真的DOM结构，他不需要浏览器DOM API的支持，其实就是一个JS对象，该对象其实就是在真实的DOM的基础上建立的一个抽象层，完整反应真实DOM的结构，当页面的数据或者结构发生变化时，React会通过diff算法比较出本次与上一次虚拟DOM中的不同，仅仅将变化同步到真实的DOM中</li>
+        <li>组件化</li>
+        <li>灵活(React推崇 all in JS)</li>
+    </ul>
+
+    <h3>
+        浏览器的渲染机制：
+            1、DOM树：浏览器会将HTML代码解析成DOM树<br>
+            2、CSS规则树：浏览器会将CSS代码解析成CSS规则树<br>
+            3、Render树：将DOM树和CSS规则树合并成Render树<br>
+            4、布局(layout)：对Render树的各个节点进行布局，计算大小、位置等<br>
+            5、绘制(paint)：根据计算出的规则，通过显卡，将内容绘制到屏幕上<br>
+
+            其中，4和5是最费劲的(耗时)<br>
+
+            回流(reflow)：浏览器上某个位置上的布局发生变化，浏览器会从根节点开始计算该节点的布局；如：向页面里添加一个元素，从页面删除一个元素，折叠内容：只要操作影响元素的位置或者大小，都将引起reflow<br>
+            重绘(repaint)：只改变页面元素的颜色，字体样式，只要不影响布局，但影响风格，浏览器会进行repaint
+    </h3>
+
+    <h3>React和Vue的比较：</h3>
+        <p>1、数据是不可变的(immutable)，数据流是单向的，如果想要修改react的数据，需要人为的触发更新数据的代码(setState)才能让react重新渲染视图</p>
+        <p>2、通过JS来操作一切</p>
+        <p>3、class组件 / 函数组件 写法</p>
+        <p>4、很多东西交给社区去做，而Vue很多功能是内置的，React里的路由(react-router-dom)，状态管理(redux)</p>
+</body>
+</html>
